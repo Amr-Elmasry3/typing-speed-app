@@ -1,0 +1,251 @@
+/* Start Global Rules */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:root{
+  --blue-color: #0075ff;
+  --blue-alt-color: #0d69d5;
+  --white-color: #ffffff;
+  --green-color: #009688;
+  --red-color: #f44336;
+  --grey-color: #EEE;
+}
+body{
+  font-family: "Open Sans", sans-serif;
+  background-color: var(--grey-color);
+  margin: 0;
+}
+ul{
+  list-style: none;
+  padding-left: 0;
+}
+a{
+  text-decoration: none;
+}
+h1,h2{
+  margin: 0;
+  color: var(--white-color);
+}
+input:focus{
+  outline-color: var(--blue-alt-color);
+}
+.my-game .level-time,
+.my-game .start,
+.my-game form,
+.my-game .words,
+.my-game .time-score,
+.my-game .choose-level,
+.my-game .challenge-word,
+.my-game .my-scores{
+  width: 70%;
+  padding: 20px;
+}
+@media (max-width: 767px){
+  .my-game .level-time,
+  .my-game .start,
+  .my-game form,
+  .my-game .words,
+  .my-game .time-score,
+  .my-game .choose-level,
+  .my-game .challenge-word,
+  .my-game .my-scores{
+    width: 100%;
+  }
+}
+/* End Global Rules */
+/* Start My Game */
+.loading-page{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: var(--green-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.loading-page div{
+  width: fit-content;
+}
+.loading-page div p{
+  font-size: 30px;
+  color: white;
+  position: relative;
+  border-right: 1px solid white;
+  width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: textappere 4s infinite alternate;
+  margin: 0;
+}
+@keyframes textappere {
+  from{
+    width: 0;
+  }
+  to{
+    width: 100%;
+  }
+}
+.loading-page .circle1{
+  width: 35px;
+  height: 35px;
+  border-style: solid solid solid dotted;
+  border-width: 3px;
+  border-color: white;
+  border-radius: 50%;
+  position: relative;
+  animation: turnright 2s linear infinite;
+}
+@keyframes turnright {
+  from{
+    transform: rotate(0);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+.loading-page .circle1::after{
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: white transparent white white;
+  border-radius: 50%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  animation: turnleft 1.5s linear infinite;
+}
+@keyframes turnleft {
+  from{
+    transform: rotate(0);
+  }
+  to{
+    transform: rotate(-360deg);
+  }
+}
+.my-game{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  width: -webkit-fill-available;
+}
+.my-game .headr{
+  width: 100%;
+  text-align: center;
+  background-color: var(--blue-color);
+  padding: 20px 0;
+}
+.my-game .level-time{
+  background-color: var(--white-color);
+  text-align: center;
+  font-size: 17.5px;
+}
+.my-game .level-time span{
+  color: var(--green-color);
+}
+.my-game .start{
+  background-color: var(--green-color);
+  text-align: center;
+  cursor: pointer;
+}
+.my-game form{
+  padding: 0;
+}
+.my-game form input{
+  width: 100%;
+  height: 60px;
+  border: 2px solid var(--blue-color);
+  border-radius: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+.my-game .words{
+  background-color: var(--white-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  row-gap: 15px;
+  flex-wrap: wrap;
+}
+.my-game .words span{
+  background-color: var(--blue-color);
+  margin: 0 15px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: var(--white-color);
+  font-size: 18px
+}
+.my-game .time-score{
+  background-color: var(--white-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.my-game .time-score .time span,
+.my-game .time-score .score span
+{
+  color: var(--green-color);
+  font-size: 18px;
+}
+.my-game .choose-level{
+  background-color: var(--blue-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.my-game .choose-level button{
+  border: none;
+  border-radius: 6px;
+  background-color: var(--grey-color);
+  padding: 5px 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--blue-alt-color);
+  cursor: pointer;
+}
+.my-game .choose-level button.active{
+  background-color: var(--green-color);
+  color: var(--white-color);
+}
+.my-game .choose-level button:hover{
+  background-color: var(--green-color);
+  color: var(--white-color);
+  transition: 0.6s;
+}
+.my-game .my-scores{
+  background-color: var(--green-color);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  overflow-y: scroll;
+  height: 145px;
+}
+.my-game .my-scores span{
+  background-color: var(--blue-alt-color);
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--white-color);
+}
+.my-game .my-scores h2{
+  color: white;
+}
+.my-game .my-scores::-webkit-scrollbar{
+  background-color: var(--white-color);
+}
+.my-game .my-scores::-webkit-scrollbar-thumb{
+  background-color: #06675e;
+  border-radius: 6px;
+}
+/* End My Game */
