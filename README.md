@@ -24,7 +24,7 @@ An interactive typing speed test game built with Vanilla JavaScript to improve t
 
 ## 📸 Preview
 
-![Typing Speed Test Preview](https://res.cloudinary.com/dqymivlkf/image/upload/v1755648073/type-speed-1_kta8op.png)
+![Typing Speed Test Preview](https://res.cloudinary.com/dqymivlkf/image/upload/v1755648074/type-speed-2_qbct48.png)
 
 ---
 
